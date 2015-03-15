@@ -1,0 +1,25 @@
+<h1>New images</h1>
+ 
+<%= form_for @images do |f| %>
+  <% if @images.errors.any? %>
+    <div id="errors_full_text" class="bg-warning">
+      <h2>Found these errors when saving:</h2>
+      <ul>
+        <% @images.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', required: true %>
+  </div>
+ 
+  <div class="form-group">
+    <%= f.label :file %>
+    <%= f.file_field :file, required: true %>
+  </div>
+ 
+  <%= f.submit 'Submit', class: 'btn btn-primary btn-lg' %>
+<% end %>

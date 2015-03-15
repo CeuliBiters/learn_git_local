@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery Pinterest Grid Plugin Example</title>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <style>
+            body {
+                background: #E9E9E9;
+            }
+            #blog-landing {
+                margin-top: 81px;
+                position: relative;
+                max-width: 100%;
+                width: 100%;
+            }
+            img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+            .white-panel {
+                position: absolute;
+                background: white;
+                box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+                padding: 10px;
+            }
+            .white-panel h1 {
+                font-size: 1em;
+            }
+            .white-panel h1 a {
+                color: #A92733;
+            }
+            .white-panel:hover {
+                box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+                margin-top: -5px;
+                -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+            }
+        </style>
+        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1 align="center">jQuery Pinterest Grid Plugin Example</h1>
+        <div class="container marketing">
+            <section id="blog-landing">
+		<% @images.each do |images| %>
+		<article class="white-panel"> <%= link_to file_tag(images.file.thumb('180x180#').url, alt: images.title, class: 'img-thumbnail'),images.file.url, target: '_blank' %>
+      <p><%= images.title %></p>
+                </article>
+		<% end %>
+            </section>
+        </div>
+	<%= link_to 'Add your images', new_imagess_path, class: 'btn btn-lg btn-primary' %>
+
+        <!-- Bootstrap core JavaScript
+            ================================================== --> 
+        <!-- Placed at the end of the document so the pages load faster --> 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="pinterest_grid.js"></script> 
+        <script>
+            $(document).ready(function() {
+
+                $('#blog-landing').pinterest_grid({
+                    no_columns: 4,
+                    padding_x: 10,
+                    padding_y: 10,
+                    margin_bottom: 50,
+                    single_column_breakpoint: 700
+                });
+
+            });
+        </script>
+    </body>
+
+
