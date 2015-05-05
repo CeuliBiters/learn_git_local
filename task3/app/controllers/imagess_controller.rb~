@@ -1,10 +1,10 @@
 class ImagessController < ApplicationController
   def index
-	@imagess = Image.all
+	@imagesss = Image.all
   end
  
   def new
-	@images = Image.new
+	@imagess = Image.new
   end
  
   def create
@@ -20,6 +20,6 @@ class ImagessController < ApplicationController
   private
  
   def images_params
-    params.require(:image).permit(:file, :title)
+    params.require(:images).permit(:file, :title)
   end
 end

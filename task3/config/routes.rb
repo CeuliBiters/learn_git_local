@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :image, only: [:new, :create, :index]
-  root to: 'image#index'
+  resources :images, only: [:new, :create, :index]
+  root to: 'images#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
