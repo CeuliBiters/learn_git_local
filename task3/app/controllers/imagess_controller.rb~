@@ -1,14 +1,14 @@
 class ImagessController < ApplicationController
   def index
-    @imagess = Images.all
+	@imagess = Image.all
   end
  
   def new
-    @images = Images.new
+	@images = Image.new
   end
  
   def create
-    @images = Images.new(images_params)
+    @images = Image.new(images_params)
     if @images.save
       flash[:success] = "Image saved!"
       redirect_to imagess_path
@@ -20,6 +20,6 @@ class ImagessController < ApplicationController
   private
  
   def images_params
-    params.require(:images).permit(:file, :title)
+    params.require(:image).permit(:file, :title)
   end
 end

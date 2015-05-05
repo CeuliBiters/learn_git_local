@@ -6,6 +6,12 @@ gem "paperclip", "~> 4.2"
 
 gem 'carrierwave'
 
+gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
+group :production do
+  gem 'rack-cache', :require => 'rack/cache'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record

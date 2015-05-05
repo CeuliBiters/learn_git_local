@@ -1,6 +1,5 @@
 class Image < ActiveRecord::Base
   dragonfly_accessor :file
-  attr_accessible :file, :title
   validates :title, presence: true, length: {minimum: 2, maximum: 20}
   validates :file, presence: true
  

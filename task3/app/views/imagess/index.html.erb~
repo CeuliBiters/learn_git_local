@@ -48,11 +48,11 @@
         <h1 align="center">jQuery Pinterest Grid Plugin Example</h1>
         <div class="container marketing">
             <section id="blog-landing">
-		<!-- % @images.each do |images| % -->
-		<article class="white-panel"> <!-- %= link_to file_tag(images.file.thumb('180x180#').url, alt: images.title, class: 'img-thumbnail'),images.file.url, target: '_blank' % -->
-      <p><!-- %= images.title % --></p>
+		<% @images.each do |images| %>
+		<article class="white-panel"> <%= link_to file_tag(images.file.thumb('180x180#').url, alt: images.title, class: 'img-thumbnail'),images.file.url, target: '_blank' %>
+      <p><%= images.title %></p>
                 </article>
-		<!-- % end % -->
+		<% end %>
             </section>
         </div>
 	<%= link_to 'Add your images', new_imagess_path, class: 'btn btn-lg btn-primary' %>

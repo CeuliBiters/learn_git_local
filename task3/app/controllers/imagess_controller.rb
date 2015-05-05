@@ -1,14 +1,14 @@
 class ImagessController < ApplicationController
   def index
-
+	@imagess = Image.all
   end
  
   def new
-
+	@images = Image.new
   end
  
   def create
-    @images = Images.new(images_params)
+    @images = Image.new(images_params)
     if @images.save
       flash[:success] = "Image saved!"
       redirect_to imagess_path
