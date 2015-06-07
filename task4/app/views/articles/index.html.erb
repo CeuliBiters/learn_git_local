@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Articles</h1>
+
+<table>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <th><%= link_to article.title, article %></th>
+      </tr>
+      <tr>
+        <td><%= article.content %></td>
+      </tr>
+      <tr>
+        <td><%= link_to 'Edit Artikel', edit_article_path(article) %></td>
+        <td><%= link_to 'Hapus Artikel', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= will_paginate @articles %>
+
+<%= link_to 'Artikel Baru', new_article_path %>

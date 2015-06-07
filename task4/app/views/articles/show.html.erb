@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>
+    <%= @article.title %>
+  </strong>
+</p>
+
+<p>
+  <%= @article.content %>
+</p>
+<br>
+<table>
+<p> Komentar </p>
+  <tbody>
+    <% @comments.where(:titleid => @article.id).each do |comment| %>
+      <tr>
+		  <strong><%= comment.name %></strong>
+		<p>
+		  <%= comment.comment %>
+		</p>
+        <%= link_to 'Hapus Komentar',comment ,method: :delete, data: { confirm: 'Are you sure?'} %><br><br>
+      </tr>
+    <% end %>
+ </tbody>
+</table>
+
+<%= render 'commentform' %>
+
+<%= link_to 'Edit Artikel', edit_article_path(@article) %> |
+<%= link_to 'Kembali', root_path %>
